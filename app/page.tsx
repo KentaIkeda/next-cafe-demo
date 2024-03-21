@@ -7,8 +7,8 @@ import { FloatingCookie } from './utils/animation';
 
 export default function Home() {
   useEffect(() => {
-    const rCookie = new FloatingCookie('right-cookie');
-    const lCookie = new FloatingCookie('left-cookie');
+    const rCookie = new FloatingCookie('right-cookie', 45, 45);
+    const lCookie = new FloatingCookie('left-cookie', 45, 45);
     rCookie.floatingCookie();
     lCookie.floatingCookie();
   }, []);

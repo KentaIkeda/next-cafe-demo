@@ -3,26 +3,26 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export class FloatingCookie {
   element: HTMLElement | null;
-  tl!: gsap.core.Tween;
-  constructor(element: string) {
+  w: number | string;
+  h: number | string;
+  tween: gsap.core.Tween;
+  constructor(element: string, w: number | string, h: number | string) {
     this.element = document.getElementById(element)!;
-  }
-  resizeCookie = (w: number, h: number) => {
-    return gsap.to(this.element, {
-      width: `${w}%`,
-      height: `${h}%`,
+    this.w = w;
+    this.h = h;
+    this.tween = gsap.to(this.element, {
+      width: `${this.w}%`,
+      height: `${this.h}%`,
       duration: 0.5,
       paused: true,
       ease: 'power4.inOut',
     });
-  };
-  playResizeCookie = (w: number, h: number) => {
-    this.tl = this.resizeCookie(w, h);
-    console.log(`this.tlが生成されました: ${this.tl}`);
-    this.tl.play();
+  }
+  playResizeCookie = () => {
+    this.tween.play();
   };
   reverseResizeCookie = () => {
-    this.tl.reverse();
+    this.tween.reverse();
   };
 
   getConceptSection = () => {
@@ -34,7 +34,7 @@ export class FloatingCookie {
       end: 'bottom center',
       onToggle: (self) => {
         if (self.isActive) {
-          this.playResizeCookie(45, 45);
+          this.playResizeCookie();
         }
         if (!self.isActive) {
           this.reverseResizeCookie();
@@ -51,7 +51,7 @@ export class FloatingCookie {
       end: 'bottom center',
       onToggle: (self) => {
         if (self.isActive) {
-          this.playResizeCookie(45, 45);
+          this.playResizeCookie();
         }
         if (!self.isActive) {
           this.reverseResizeCookie();
@@ -68,7 +68,7 @@ export class FloatingCookie {
       end: 'bottom center',
       onToggle: (self) => {
         if (self.isActive) {
-          this.playResizeCookie(30, 30);
+          this.playResizeCookie();
         }
         if (!self.isActive) {
           this.reverseResizeCookie();
@@ -85,7 +85,7 @@ export class FloatingCookie {
       end: 'bottom center',
       onToggle: (self) => {
         if (self.isActive) {
-          this.playResizeCookie(45, 45);
+          this.playResizeCookie();
         }
         if (!self.isActive) {
           this.reverseResizeCookie();
