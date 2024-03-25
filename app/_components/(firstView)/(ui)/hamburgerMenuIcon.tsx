@@ -1,6 +1,19 @@
-export default function HamburgerMenu() {
+'use client';
+
+import { Dispatch, SetStateAction } from 'react';
+
+export default function HamburgerMenuIcon({
+  isFirstView,
+  isNav,
+  setIsNav,
+}: {
+  isFirstView: boolean;
+  isNav: boolean;
+  setIsNav: Dispatch<SetStateAction<boolean>>;
+}) {
   return (
     <svg
+      id='hamburger-icon'
       xmlns='http://www.w3.org/2000/svg'
       width='24'
       height='24'
@@ -10,7 +23,8 @@ export default function HamburgerMenu() {
       strokeWidth='2'
       strokeLinecap='round'
       strokeLinejoin='round'
-      className='text-white'
+      className={isFirstView ? 'text-cafe-deep-green' : 'text-white'}
+      onClick={() => setIsNav(!isNav)}
     >
       <line
         x1='21'

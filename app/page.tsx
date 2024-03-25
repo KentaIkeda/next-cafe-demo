@@ -3,14 +3,17 @@
 // SはSectionの略
 import * as S from './_components/index';
 import { useEffect } from 'react';
-import { FloatingCookie } from './utils/animation';
+import { FloatingCookie, ScrollChangeColor } from './utils/animation';
 
 export default function Home() {
   useEffect(() => {
+    //                  FloatingCookie(element, width, height)
     const rCookie = new FloatingCookie('right-cookie', 45, 45);
     const lCookie = new FloatingCookie('left-cookie', 45, 45);
     rCookie.floatingCookie();
     lCookie.floatingCookie();
+    const sc = new ScrollChangeColor('first-view', '#006400');
+    sc.changeColor();
   }, []);
 
   return (
@@ -24,14 +27,15 @@ export default function Home() {
         <S.SectinMargin
           image='/drink/coffee1.png'
           isText
-          text='美味しいクッキーも...'
+          text='ホッと一息...'
         />
         <section id='sec-businesshour'>
           <S.BusinessHour />
         </section>
         <S.SectinMargin
           image='/food/cookie/cookie2.png'
-          isText={false}
+          isText
+          text='美味しいクッキーも...'
         />
         <section id='sec-access'>
           <S.Access />

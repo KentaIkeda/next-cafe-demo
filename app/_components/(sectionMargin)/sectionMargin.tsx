@@ -3,8 +3,8 @@ import { SectionMargin } from '@/app/types/types';
 
 export default function SectinMargin({ image, isText, text }: SectionMargin) {
   return (
-    <div className='my-32'>
-      <div className='relative h-auto w-20 left-1/2 -translate-x-1/2'>
+    <div className='my-32 md:my-40'>
+      <div className='relative h-auto w-20 left-1/2 -translate-x-1/2 md:w-28'>
         <Image
           src={image}
           width='2000'
@@ -13,7 +13,7 @@ export default function SectinMargin({ image, isText, text }: SectionMargin) {
           alt=''
         />
       </div>
-      <p className='mt-3 text-center text-xs'>{isText && text}</p>
+      <p className='mt-3 text-center text-xs md:text-sm'>{isText && text}</p>
     </div>
   );
 }

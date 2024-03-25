@@ -1,5 +1,6 @@
 import SectionHead from '../(uis)/sectionHead';
 import NewsPart from './(ui)/newsPart';
+import LinkButton from '../(uis)/LinkButton';
 
 export default function News() {
   return (
@@ -18,6 +19,9 @@ export default function News() {
           <NewsPart date='2024/3/27'>店舗が新しくなりました！</NewsPart>
         </li>
       </ul>
+      <div className='relative left-1/2 -translate-x-1/2 inline-block mt-8'>
+        <LinkButton href='/news'>ニュース一覧</LinkButton>
+      </div>
     </>
   );
 }

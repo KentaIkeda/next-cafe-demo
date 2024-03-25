@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { zenKurenaido } from './utils/fonts';
+import HamburgerProvider from './_components/(firstView)/(ui)/hamburgerProvider';
 import Footer from './_components/(footer)/footer';
 import * as C from './_components/(cookies)/index';
 
@@ -19,6 +20,9 @@ export default function RootLayout({
       <body
         className={`w-full h-auto bg-cafe-cream text-cafe-text ${zenKurenaido.className}`}
       >
+        <div className='fixed top-7 right-7 z-10'>
+          <HamburgerProvider />
+        </div>
         {children}
         <Footer />
         <C.LeftSideCookie />
