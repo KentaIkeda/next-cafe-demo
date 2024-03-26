@@ -23,7 +23,7 @@ export default function HamburgerMenu({
   return (
     <div
       onClick={() => setIsNav(!isNav)}
-      className='h-screen w-full bg-black/50 fixed top-0 left-0'
+      className='h-screen w-full bg-black/80 fixed top-0 left-0'
     >
       <nav className='w-full h-full'>
         <ul className='flex flex-col items-center justify-center w-full h-full gap-y-4'>

@@ -1,8 +1,22 @@
 import Image from 'next/image';
 import CanScrollUI from './(ui)/canScrollUI';
 import { megrim } from '../../utils/fonts';
+import { useEffect, useState } from 'react';
 
 export default function FirstView() {
+  const [isWindowSize, setIsWindowSize] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        setIsWindowSize(true);
+      }
+      if (window.innerWidth <= 767) {
+        setIsWindowSize(false);
+      }
+    });
+  }, [window.innerWidth]);
+
   return (
     <div
       id='first-view'
@@ -19,15 +33,27 @@ export default function FirstView() {
       <div className='absolute bottom-7 left-1/2 -translate-x-1/2'>
         <CanScrollUI />
       </div>
-      <Image
-        src='/firstViewMobile.jpg'
-        width='2000'
-        height='2000'
-        priority
-        quality={100}
-        style={{ width: '100%', height: '100dvh', objectFit: 'cover' }}
-        alt=''
-      />
+      {isWindowSize ? (
+        <Image
+          src='/firstViewPC.jpg'
+          width='2000'
+          height='2000'
+          priority
+          quality={100}
+          style={{ width: '100%', height: '100dvh', objectFit: 'cover' }}
+          alt=''
+        />
+      ) : (
+        <Image
+          src='/firstViewMobile.jpg'
+          width='2000'
+          height='2000'
+          priority
+          quality={100}
+          style={{ width: '100%', height: '100dvh', objectFit: 'cover' }}
+          alt=''
+        />
+      )}
     </div>
   );
 }

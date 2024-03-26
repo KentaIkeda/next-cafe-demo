@@ -20,7 +20,7 @@ export default function RootLayout({
       <body
         className={`w-full h-auto bg-cafe-cream text-cafe-text ${zenKurenaido.className}`}
       >
-        <div className='fixed top-7 right-7 z-10'>
+        <div className='fixed top-7 right-7 z-10 lg:hidden'>
           <HamburgerProvider />
         </div>
         {children}
