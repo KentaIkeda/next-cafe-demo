@@ -7,15 +7,17 @@ export default function FirstView() {
   const [isWindowSize, setIsWindowSize] = useState(false);
 
   useEffect(() => {
+    const handleResizeWidth = () =>
+      setIsWindowSize(window.innerWidth >= 768 ? true : false);
     window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) {
-        setIsWindowSize(true);
-      }
-      if (window.innerWidth <= 767) {
-        setIsWindowSize(false);
-      }
+      handleResizeWidth();
     });
-  }, [window.innerWidth]);
+    return () => {
+      window.removeEventListener('resize', () => {
+        handleResizeWidth();
+      });
+    };
+  }, []);
 
   return (
     <div
