@@ -1,5 +1,5 @@
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import _ScrollTrigger, { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { WandHinFloatingCookie } from '../types/types';
 
 // 左右にfixedされているクッキーをスクロールに応じてサイジングするアニメーションクラス
@@ -156,6 +156,37 @@ export class ScrollChangeColor {
       start: `bottom +=${this.sumDistanveAndHight()}`,
       onEnter: () => this.changeColorTween.play(),
       onLeaveBack: () => this.changeColorTween.reverse(),
+    });
+  };
+}
+
+export class FixedHeader {
+  triggerElement: HTMLElement;
+  animation: gsap.core.Tween;
+
+  constructor(triggerElement: string) {
+    // 末尾に"!"を付けてるからuseEffect内で使用することを想定
+    // triggerElement
+    this.triggerElement = document.getElementById(triggerElement)!;
+    this.animation = gsap.to('#header_navigation', {
+      opacity: 1,
+      duration: 0.2,
+      paused: true,
+    });
+  }
+  playAnimation = () => {
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.create({
+      trigger: this.triggerElement,
+      start: 'bottom top',
+      onEnter: () => {
+        console.log('start');
+        this.animation.play();
+      },
+      onEnterBack: () => {
+        console.log('back');
+        this.animation.reverse();
+      },
     });
   };
 }

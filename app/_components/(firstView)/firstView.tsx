@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import CanScrollUI from './(ui)/canScrollUI';
 import { megrim } from '../../utils/fonts';
@@ -27,6 +29,7 @@ export default function FirstView() {
       {/* over lay */}
       <div className='bg-black/50 absolute top-0 left-0 w-full h-full'></div>
       {/* //over lay */}
+
       <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-auto'>
         <h1 className={`text-white text-4xl text-center ${megrim.className}`}>
           cafe Demo...

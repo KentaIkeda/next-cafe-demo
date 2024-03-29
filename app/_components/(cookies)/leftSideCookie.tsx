@@ -7,7 +7,7 @@ export default function LeftSideCookie() {
   return (
     <>
       {!isRoot && (
-        <div className='fixed left-0 top-1/2 -translate-y-1/2 w-1/3 h-auto z-50'>
+        <div className='fixed left-0 top-1/2 -translate-y-1/2 w-1/3 h-auto z-50 lg:w-1/6'>
           <Image
             id='left-cookie'
             src='/food/cookie/cookie1.png'

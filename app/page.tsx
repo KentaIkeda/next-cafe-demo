@@ -4,6 +4,9 @@
 import * as S from './_components/index';
 import { useEffect } from 'react';
 import { FloatingCookie, ScrollChangeColor } from './utils/animation';
+import { navList } from './utils/navList';
+import HeaderNavigation from './_components/(uis)/headerNavigation';
+import { FixedHeader } from './utils/animation';
 
 export default function Home() {
   useEffect(() => {
@@ -14,10 +17,20 @@ export default function Home() {
     lCookie.floatingCookie();
     const sc = new ScrollChangeColor('first-view', '#006400');
     sc.changeColor();
+    const fixedHeader = new FixedHeader('first-view');
+    fixedHeader.playAnimation();
   }, []);
 
   return (
     <>
+      <header
+        id='header_navigation'
+        className='w-full h-16 bg-cafe-cream shadow-md fixed top-0 z-10 opacity-0'
+      >
+        <nav className='h-full'>
+          <HeaderNavigation navLists={navList} />
+        </nav>
+      </header>
       <S.FirstView />
       <main className='px-10 h-auto w-full'>
         <section id='sec-concept'>

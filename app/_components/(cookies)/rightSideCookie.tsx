@@ -7,7 +7,7 @@ export default function RightSideCookie() {
   return (
     <>
       {!isRoot && (
-        <div className='fixed right-0 top-1/2 -translate-y-1/2 rotate-180 w-1/3 h-auto z-50'>
+        <div className='fixed right-0 top-1/2 -translate-y-1/2 rotate-180 w-1/3 h-auto z-50 lg:w-1/6'>
           <Image
             id='right-cookie'
             src='/food/cookie/cookie1.png'

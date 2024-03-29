@@ -35,3 +35,4 @@ export type Items = {
   name: string;
   price: number;
 }[];
+export type NavListsType = { id: number; name: string; href: string }[];
