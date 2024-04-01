@@ -3,7 +3,7 @@ export type SectionMargin = {
   isText: boolean;
   text?: string;
 };
-export type NewsPart = {
+export type NewsPartType = {
   children: React.ReactNode;
   date: string;
 };
