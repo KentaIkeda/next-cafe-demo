@@ -11,7 +11,9 @@ export default function NewsPage() {
   useEffect(() => {
     const getNewsData = async () => {
       try {
-        const response = await fetch('/api/data');
+        const response = await fetch(
+          'https://next-cafe-demo-k3ebcnz65-kenta-ikedas-projects.vercel.app/api/data'
+        );
         const json = await response.json();
         setNewsData(json);
       } catch (error) {
