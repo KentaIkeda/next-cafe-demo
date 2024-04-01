@@ -8,7 +8,7 @@ import { navList } from '@/app/utils/navList';
 export default async function MenuPage() {
   const getNewsData = async () => {
     try {
-      const response = await fetch('/api/data/route');
+      const response = await fetch('/api/data');
       const json = await response.json();
       return json; // For server component
     } catch (error) {
