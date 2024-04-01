@@ -6,24 +6,59 @@ import HeaderNavigation from '@/app/_components/(uis)/headerNavigation';
 import { navList } from '@/app/utils/navList';
 
 export default async function MenuPage() {
-  const getNewsData = async () => {
-    try {
-      const response = await fetch(
-        'https://next-cafe-demo-k3ebcnz65-kenta-ikedas-projects.vercel.app/api/data/route'
-      );
-      const json = await response.json();
-      return json; // For server component
-    } catch (error) {
-      console.error('Error fetching data: ==>', error);
-    }
+  const menuData: MenuDataType<DrinkType<Items>, FoodType<Items>> = {
+    coffee: {
+      hot: {
+        items: [
+          { name: 'カフェラテ', price: 380 },
+          { name: 'カプチーノ', price: 400 },
+          { name: 'カフェモカ', price: 420 },
+        ],
+      },
+      iced: {
+        items: [
+          { name: 'アイスカフェラテ', price: 400 },
+          { name: 'アイスカプチーノ', price: 420 },
+          { name: 'アイスカフェモカ', price: 440 },
+        ],
+      },
+    },
+    tea: {
+      hot: {
+        items: [
+          { name: 'ストレートティー', price: 300 },
+          { name: 'ミルクティー', price: 350 },
+          { name: 'ハーブティー', price: 380 },
+        ],
+      },
+      iced: {
+        items: [
+          { name: 'アイスストレートティー', price: 320 },
+          { name: 'アイスミルクティー', price: 370 },
+          { name: 'アイスハーブティー', price: 400 },
+        ],
+      },
+    },
+    cookies: {
+      items: [
+        { name: 'チョコチップクッキー', price: 200 },
+        { name: 'オートミールレーズンクッキー', price: 180 },
+        { name: 'ナッツクッキー', price: 220 },
+      ],
+    },
+    sandwiches: {
+      items: [
+        { name: 'ベジタブルサンドイッチ', price: 480 },
+        { name: 'エッグサラダサンドイッチ', price: 420 },
+        { name: 'ハムチーズサンドイッチ', price: 500 },
+      ],
+    },
   };
-  const menuData = await getNewsData();
-  const data: MenuDataType<DrinkType<Items>, FoodType<Items>> = menuData[1];
 
-  const coffee = data?.coffee;
-  const cookies = data?.cookies;
-  const tea = data?.tea;
-  const sandwiches = data?.sandwiches;
+  const coffee = menuData?.coffee;
+  const cookies = menuData?.cookies;
+  const tea = menuData?.tea;
+  const sandwiches = menuData?.sandwiches;
 
   return (
     <>
