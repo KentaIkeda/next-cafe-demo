@@ -3,9 +3,9 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 export default function LeftSideCookie() {
+  const pathName = usePathname();
   // Rootかそれ以外かを判定する関数
   const getOtherThanRoot = (): boolean => {
-    const pathName = usePathname();
     // Rootだったら"/"なので何も返されない。
     // Root意外だったら何かしら文字列が返されるのでtrueと評価される。
     if (pathName.slice(1)) {
