@@ -9,7 +9,7 @@ export default async function MenuPage() {
   const getNewsData = async () => {
     try {
       const response = await fetch(
-        'https://next-cafe-demo-k3ebcnz65-kenta-ikedas-projects.vercel.app/api/data'
+        'https://next-cafe-demo-k3ebcnz65-kenta-ikedas-projects.vercel.app/api/data/route'
       );
       const json = await response.json();
       return json; // For server component
