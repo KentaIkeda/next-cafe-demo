@@ -4,9 +4,21 @@ import { NavListsType } from '@/app/types/types';
 import HeaderNavigation from '../(uis)/headerNavigation';
 import { useEffect } from 'react';
 import { FixedHeader } from '@/app/utils/animation';
-import { getOtherThanRoot } from '@/app/utils/utils';
+import { usePathname } from 'next/navigation';
 
 export default function Header({ navLists }: { navLists: NavListsType }) {
+  // Rootかそれ以外かを判定する関数
+  const getOtherThanRoot = (): boolean => {
+    const pathName = usePathname();
+    // Rootだったら"/"なので何も返されない。
+    // Root意外だったら何かしら文字列が返されるのでtrueと評価される。
+    if (pathName.slice(1)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   useEffect(() => {
     const fixedHeader = new FixedHeader('first-view');
     fixedHeader.playAnimation();

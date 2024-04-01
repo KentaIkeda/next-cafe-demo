@@ -20,14 +20,3 @@ export const formatDate = (date: string) => {
     return `${year}-${month}-${day}`;
   }
 };
-// Rootかそれ以外かを判定する関数
-export const getOtherThanRoot = (): boolean => {
-  const pathName = usePathname();
-  // Rootだったら"/"なので何も返されない。
-  // Root意外だったら何かしら文字列が返されるのでtrueと評価される。
-  if (pathName.slice(1)) {
-    return true;
-  } else {
-    return false;
-  }
-};
