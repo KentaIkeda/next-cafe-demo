@@ -11,7 +11,7 @@ export default function NewsPage() {
   useEffect(() => {
     const getNewsData = async () => {
       try {
-        const response = await fetch('/api/data');
+        const response = await fetch('/api/data/route');
         const json = await response.json();
         setNewsData(json);
       } catch (error) {
