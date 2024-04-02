@@ -1,11 +1,12 @@
 import { FoodType, Items } from '@/app/types/types';
+import MenuTitle from './MenuTitle';
 
 export default function Sandwiches({ data }: { data: FoodType<Items> }) {
   console.log(data);
   return (
     <>
       <div className='m-4 p-4 md:my-8 md:p-8 bg-cafe-beige shadow-md md:max-w-[500px] mx-auto'>
-        <h3 className='text-center font-bold'>サンドウィッチ</h3>
+        <MenuTitle>サンドウィッチ</MenuTitle>
         <table className='w-full h-auto'>
           <tbody className='w-full h-auto'>
             {data?.items.map((data) => {

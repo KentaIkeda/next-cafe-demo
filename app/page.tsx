@@ -4,8 +4,7 @@
 import * as S from './_components/index';
 import { useEffect } from 'react';
 import { FloatingCookie, ScrollChangeColor } from './utils/animation';
-import { navList } from './utils/navList';
-import HeaderNavigation from './_components/(uis)/headerNavigation';
+import { navList } from './utils/datas';
 import { FixedHeader } from './utils/animation';
 
 export default function Home() {
@@ -23,14 +22,7 @@ export default function Home() {
 
   return (
     <>
-      <header
-        id='header_navigation'
-        className='w-full h-16 bg-cafe-cream shadow-md fixed top-0 z-10 opacity-0'
-      >
-        <nav className='h-full'>
-          <HeaderNavigation navLists={navList} />
-        </nav>
-      </header>
+      <S.Header navLists={navList} />
       <S.FirstView />
       <main className='px-10 h-auto w-full'>
         <section id='sec-concept'>

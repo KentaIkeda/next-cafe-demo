@@ -1,5 +1,3 @@
-import { usePathname } from 'next/navigation';
-
 export const formatDate = (date: string) => {
   // dateで渡されたYYYY/MM/DD形式の日付ををYYYY-MM-DD形式に変換する関数
   // "/"がmonthとdayの間に存在するか？

@@ -29,7 +29,9 @@ export default function Header({ navLists }: { navLists: NavListsType }) {
   return (
     <header
       id='header_navigation'
-      className='w-full h-16 bg-cafe-cream shadow-md fixed top-0 z-10 opacity-0'
+      className={`w-full h-16 bg-cafe-cream shadow-md fixed top-0 z-10 ${
+        isRoot ? 'opacity-100' : 'opacity-0'
+      } hidden lg:block`}
     >
       <nav className='h-full'>
         <HeaderNavigation navLists={navLists} />

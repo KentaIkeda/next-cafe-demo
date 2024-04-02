@@ -180,11 +180,9 @@ export class FixedHeader {
       trigger: this.triggerElement,
       start: 'bottom top',
       onEnter: () => {
-        console.log('start');
         this.animation.play();
       },
       onEnterBack: () => {
-        console.log('back');
         this.animation.reverse();
       },
     });

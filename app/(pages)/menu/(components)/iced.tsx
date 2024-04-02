@@ -1,9 +1,15 @@
 import { DrinkType, Items } from '@/app/types/types';
 
-export default function Iced({ data }: { data: DrinkType<Items> }) {
+export default function Iced({
+  data,
+  className,
+}: {
+  data: DrinkType<Items>;
+  className?: string;
+}) {
   return (
     <>
-      <h4>アイス</h4>
+      <h4 className={className}>アイス</h4>
       <table className='w-full h-auto'>
         <tbody className='w-full h-auto'>
           {data?.iced.items.map((data) => {

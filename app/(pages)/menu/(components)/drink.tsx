@@ -1,8 +1,9 @@
 // server component
-import React, { Suspense } from 'react';
+import React from 'react';
 import Hot from './hot';
 import Iced from './iced';
 import { DrinkType, Items } from '@/app/types/types';
+import MenuTitle from './MenuTitle';
 
 export default function Drink({
   data,
@@ -13,17 +14,13 @@ export default function Drink({
 }) {
   return (
     <div className='m-4 p-4 md:my-8 md:p-8 bg-cafe-beige shadow-md md:max-w-[500px] mx-auto '>
-      <h3 className='text-center font-bold'>{children}</h3>
-      <div>
-        <Suspense fallback={<p>Loading</p>}>
-          <Hot data={data} />
-        </Suspense>
-      </div>
-      <div className='mt-4'>
-        <Suspense fallback={<p>Loading</p>}>
-          <Iced data={data} />
-        </Suspense>
-      </div>
+      <MenuTitle>{children}</MenuTitle>
+
+      <Hot data={data} />
+      <Iced
+        data={data}
+        className='mt-4'
+      />
     </div>
   );
 }
